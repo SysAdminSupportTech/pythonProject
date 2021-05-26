@@ -1,0 +1,6 @@
+When reading a file, the four mode values are:
+"r": read (this is the default value, returns an error is the file does not exits)
+"a": Append (This append to a file and create a new file if not existed)
+"w": Open (Open a file for writting if the file does not exits)
+"x": Create (Create a file and return an error if the file does not exits)
+"b": -b Binary mode for pictures
