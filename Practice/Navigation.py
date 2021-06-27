@@ -13,7 +13,7 @@ if userChangeDirMessage.upper() == 'Y':
     print(userWorkSpace)
 else:
     #Change user path to home Directory
-    homedir = os.path.expanduser("~")
+    homedir = os.path.expanduser("~")  
     os.chdir(homedir) #Set Current Home dir
     Cdir = os.getcwd() #Get Current Home Dir
     print("Your Current directory is {}\n".format(Cdir))
@@ -28,4 +28,48 @@ userPickedVal = dirs[userChoice]
 #Select Directory based on Value selected
 SetUserDirofChoice = homedir + "\\" + userPickedVal #Append user directory choice to home dir
 os.chdir(SetUserDirofChoice) #Set path to user directory choice
-print(os.listdir())
+chdirs = os.listdir() #list directory in a readable format and assigning numbers to them
+print("")
+print("Current dir is {}".format(os.getcwd())) #Showing user the current directory he is working on
+for dir in chdirs:
+    print(chdirs.index(dir), "{}".format(dir))
+
+print("")
+userSelectFileFolder = int(input("SELECT A NUMBER TO A FILE OR FOLDER: "))
+userOption  = chdirs[userSelectFileFolder]
+if userSelectFileFolder:
+    print("")
+    print("You have Selected {}".format(userOption))
+    print("")
+    print("SELECT NUMBER BELOW TO PERFORM AN ACTION ON FILE OR DIRECTOR")
+    btnActions = ["Size","FileType","Delete","Rename","New"]
+    for btn in btnActions:
+        print(btnActions.index(btn),"{}".format(btn))
+
+    print("")
+    #Creating a switch statement to handle actions
+    userSelectActionBtn = int(input(""))
+    if userSelectActionBtn == 0:
+        fileSize = os.path.getsize(userOption)
+        actualSize = fileSize / 1024
+        print("FileSize: {}".format(actualSize))
+    elif userSelectActionBtn == 1:
+        fileType = os.path.splitext(userOption)
+        fileTypeShow = fileType[1]
+        print("FileType: {}".format(fileTypeShow))
+
+    elif userSelectActionBtn == 2:
+        os.remove(userOption)
+        print("File: {} has been Deleted Successfully".format(userOption))
+    elif userSelectActionBtn == 3:
+        cwd = os.getcwd()
+        filepath = cwd + "\\" + userOption
+        renamedFile = os.rename(filepath, "NewFile.mp4")
+        print("File: {} has been renamed to {}".format(userOption, renamedFile))
+    elif userSelectActionBtn == 4:
+        print("New has been selected")
+    else:
+        print("Non of The Action Button has been Selected. Please try again later.")
+
+else:
+    print('You Decide not to select anything. Get out of here and let us go')
