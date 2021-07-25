@@ -1,27 +1,20 @@
 #Build
-import os
-print("Welcome to our Spider Crawler Application")
+import os, glob
 def spiderCrawler(ext):
-    rtpath = "C:\\" #Creating Variable root path
-    stlocation = os.chdir(rtpath) #Set Location to root folder
-    rtpathContent = os.listdir() #Get content of C:\ dir
-    for fileFolder in rtpathContent:
-        indexVal = rtpathContent.index(fileFolder)
-        print("{}.{}".format(indexVal, fileFolder))
-
-        #Print each item in the directory of the root folder
-        for itemVal in rtpathContent:
-            if os.path.isdir(itemVal):
-                try:
-                    DisplayContent = os.listdir(itemVal)
-                    countItem = len(os.listdir(itemVal))
-                    print(80*"-")
-                    print("{} ({})".format(itemVal, countItem))
-                    print(DisplayContent)
-                    
-                except PermissionError:
-                    print("{} Access Denied".format(itemVal))
-            else:
-                print(itemVal)
-spiderCrawler('.txt')
-
+    print("Welcome to our Spider Crawler Application two")
+    rtpath = r"C:\Users\DeptAdmin" #Creating Variable root path
+    #Getting the index Value of the file and Folder
+    fileFolders = os.listdir(rtpath)
+    for item in fileFolders:
+        itemIndex = fileFolders.index(item)
+        if os.path.isdir(os.path.join(rtpath,item)):
+            item_path = rtpath + "\\" + item + "\\" #Getting the absolute path of the document
+            try:
+                item_Count = len(os.listdir(os.path.join(rtpath,item_path)))
+                print("{}. {} ({})".format(itemIndex,item, item_Count))
+            except PermissionError:
+                pass
+        else:
+            print("{}. {}".format(itemIndex, item))
+    
+spiderCrawler('txt')
