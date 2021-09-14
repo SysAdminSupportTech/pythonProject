@@ -1,4 +1,6 @@
 from tkinter import *
+import os
+import time
 
 window = Tk() #initializing the window class
 window.title("Shutdown Scheduler")
@@ -29,9 +31,7 @@ schedule_time_morning = [
     "10:30 AM",
     "11:00 AM",
     "11:30 AM",
-]
 
-schedule_time_afternoon = [
     "Afternoon",
     "12:00 PM",
     "12:30 PM",
@@ -58,34 +58,32 @@ schedule_time_afternoon = [
     "12:00 PM",
     "12:30 PM"
 ]
+
 #Getting the value of morning
-def schedule_morning():
-    pass
+def schedule():
+    """
+        Use powershell to schedule the shutdown
+    """
+    
+    timeval = ''
+    os.system(shutdown /s /t)
+    #selected = clicked_morning.get()
+    #print(selected)
 
 clicked_morning = StringVar()
 clicked_morning.set(schedule_time_morning[0])
 dropdown_morning = OptionMenu(window,clicked_morning, *schedule_time_morning)
-dropdown_morning.place(x=50, y=10)
-
-clicked_afternoon = IntVar()
-clicked_afternoon.set(schedule_time_afternoon[0])
-dropdown_afternoon = OptionMenu(window,clicked_afternoon, *schedule_time_afternoon)
-dropdown_afternoon.place(x=200, y=10)
-
-#Creating Command action
-def action():
-    selected = "you have done well" + str(var.get())
-    label.config(text = selected)
+dropdown_morning.place(x=50, y=10, width= 250)
 
 #Creating Check button strict and Mild
 var = IntVar()
-strict = Radiobutton(window, text="STRICT", variable=var, value=1, command=action)
+strict = Radiobutton(window, text="STRICT", variable=var, value=1)
 strict.place(x=100, y=80)
-mild = Radiobutton(window, text="MILD", variable=var, value=2, command=action)
+mild = Radiobutton(window, text="MILD", variable=var, value=2)
 mild.place(x=180, y=80)
 
 #Creating the schedule button
-button_submit = Button(text="Schedule", background="green", fg="white",font=12, command=schedule_morning).place(x=12, y=150)
+button_submit = Button(text="Schedule", background="green", fg="white",font=12, command=schedule).place(x=12, y=150)
 button_reschedule = Button(text="Reschedule", background="grey", fg="white", font=12).place(x=120, y=150)
 button_cancel = Button(text="Cancel", bg="red",fg="black", font=12).place(x=250, y=150)
 
