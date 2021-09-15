@@ -7,18 +7,36 @@ window.title("Shutdown Scheduler")
 window.geometry("350x230")
 label_top = Label(bg="white",fg="white", width= 100, height=15).pack()
 #time Text entry value
-time_label = Label(text="Enter Time in Hours")
-time_label.place(x=100, y=5)
+time_label = Label(text="Enter Time: h for hrs: m for min(5h or 5m)")
+time_label.place(x=60, y=5)
 time_entry = Entry(window)
 #Getting the value of morning
 def schedule():
     """
         Use powershell to schedule the shutdown
     """
-    selected = time_entry.get()
-    time_call = 60*60*int(selected)
-    timer= str(time_call)
-    os.system('shutdown /s /t ' + timer)
+    #Setting the timer to either minute or hours
+    mylistval = []
+    user_input = time_entry.get()
+    user_input.lower()
+    confirm_user_input = 'h' in user_input
+    if confirm_user_input:
+        selected = time_entry.get()
+        for letter in selected:
+            mylistval.append(letter)
+            user_time = mylistval[0]
+            time_call = 60*60*int(user_time)
+            timer= str(time_call)
+            os.system('shutdown /s /t ' + timer)
+        
+    else:
+        selected = time_entry.get()
+        for letter in selected:
+            mylistval.append(letter)
+            user_time = mylistval[0]
+            time_call = 60*int(user_time)
+            timer= str(time_call)
+            os.system('shutdown /s /t ' + timer)
 
 def btn_cancel():
     pass
