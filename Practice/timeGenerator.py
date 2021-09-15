@@ -1,44 +1,60 @@
-#Write some code that can take two dates as input, and calculate the amount of time between them. This will be a great way to familiarize yourself with Python's datetime module.
-import time
-import datetime
-def wtime():
-    a=time.time()
+#important note: time is generated in 3 format
+#1 string using ctime() and asctime() 
+#2 tuple using gmtime() and localtime()
+#3 seconds using time() and calendar.timegm(localtime()/gmtime(since this produce a turple result))
+
+from time import *
+#this function discover the time epoc on your computer
+def time1():
+    print(time.gmtime(0))
+#time1()
+
+def time2():
+    print(time())# this return the number of seconds after the epoc
+#time2()
+
+def time3():
+    a = ctime() #display time in string
     print(a)
-    b=time.ctime(a)
+#time3()
+
+def time4():
+    a = time()
+    b = ctime(a)
     print(b)
-    print("\n\n")
-    c=time.localtime()
-    print('Local time format with 9 classes')
-    d=time.asctime(c)
-    print(d)
-    print("\n\n")
-    e=time.strftime("%d/%m/%Y")
-    print(e)
-    help(time.strftime)
-#wtime()
 
-def wdatetime():
-    print("\n\n")
-    print("working with Datetime.today")
-    f=datetime.datetime.today()
-    print(f)
-    print("\n\n")
-    print("working with Datetime.now")
-    g=datetime.datetime.now()
-    print(g)
-    print("\n\n")
-    print("working with Datetime.date")
-    h=datetime.date(2020,8,7)
-    print(h)
-    print("\n\n")
-    print("working with Datetime time difference")
-    b1 = datetime.timedelta(days=20)
-    b2 = datetime.timedelta(days=31)
-    b3 = b1-b2
-    print(b3)
-    print("\n\n")
-    print("working with Datetime fuction")
-wdatetime()
+    time_tuple = (2019, 2, 26, 7, 6, 55, 1, 57, 0)
+    time_obj = struct_time(time_tuple)
+    print(time_obj)
+#time4()
 
+def time5():
+    print(gmtime(1.99))
+#time5()
 
+def localtime1():
+    current_local = localtime()
+    print(current_local.tm_gmtoff)
+#localtime1()
 
+#converting time in using the calendar module
+import calendar
+def timesec():
+    a = time()
+    t = ctime()
+    d = calendar.timegm(localtime())
+    return d
+#print(timesec())
+
+#converting time.struct to string
+def asctimef():
+    a = asctime()
+    b = asctime(localtime())
+    print(b)
+    print(a)
+#asctimef()
+
+def strftimef():
+    a = strftime('%Y-%m-%d', localtime())
+    print(a)
+strftimef()
