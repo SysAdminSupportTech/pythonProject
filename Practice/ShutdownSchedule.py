@@ -22,21 +22,18 @@ def schedule():
     confirm_user_input = 'h' in user_input
     if confirm_user_input:
         selected = time_entry.get()
-        for letter in selected:
-            mylistval.append(letter)
-            user_time = mylistval[0]
-            time_call = 60*60*int(user_time)
-            timer= str(time_call)
-            os.system('shutdown /s /t ' + timer)
+        user_time = selected.replace('h','')
+        time_call = 60*60*int(user_time)
+        timer= str(time_call)
+        os.system('shutdown /s /t ' + timer)
         
     else:
         selected = time_entry.get()
-        for letter in selected:
-            mylistval.append(letter)
-            user_time = mylistval[0]
-            time_call = 60*int(user_time)
-            timer= str(time_call)
-            os.system('shutdown /s /t ' + timer)
+        selected = time_entry.get()
+        user_time = selected.replace('m','')
+        time_call = 60*int(user_time)
+        timer= str(time_call)
+        os.system('shutdown /s /t ' + timer)
 
 def btn_cancel():
     pass
