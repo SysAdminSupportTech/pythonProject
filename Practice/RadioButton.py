@@ -1,7 +1,7 @@
 from tkinter import *
 
 def sel():
-   selection = "You selected the option " 
+   selection = "You selected the option " + str(var.get())
    label.config(text = selection)
 
 root = Tk()
