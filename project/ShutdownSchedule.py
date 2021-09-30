@@ -46,25 +46,23 @@ def btn_cancel():
 
 
 def reschedule_button():
-    pass
+    os.system('shutdown /a')
+    schedule()
 
 time_entry.place(x=50, y=30, width= 250, height=25)
 #Creating Check button strict and Mild
 var = IntVar()
-strict = Radiobutton(window, text="STRICT", variable=var, value=1)
+strict = Radiobutton(window, text="Interval", variable=var, value=1)
 strict.place(x=100, y=80)
 mild = Radiobutton(window, text="MILD", variable=var, value=2)
 mild.place(x=180, y=80)
 
 #Creating the schedule button
 button_submit = Button(text="Schedule", background="green", fg="white",font=12, command=schedule).place(x=12, y=150)
-button_reschedule = Button(text="Reschedule", background="grey", fg="white", font=12).place(x=120, y=150)
+button_reschedule = Button(text="Reschedule", background="grey", fg="white", font=12, command=reschedule_button).place(x=120, y=150)
 close_cancel = Button(text="Close", bg="red",fg="black", font=12, command=btn_cancel).place(x=250, y=150)
-
-
 label = Label(window)
 label.pack()
 window.resizable(False,False)
-
 
 window.mainloop()
