@@ -64,7 +64,7 @@ def changestate(): #Function to enable schedule button
 time_entry.place(x=50, y=30, width= 250, height=25)
 #Creating Check button strict and Mild
 var = IntVar()
-strict = Checkbutton(window, text="Interval", variable=var, onvalue=1, offvalue=0, command=changestate)
+strict = Checkbutton(window, text="Set Recurrent Shutdown", variable=var, onvalue=1, offvalue=0, command=changestate)
 strict.place(x=130, y=90)
 #Creating the schedule button
 button_submit = Button(text="Schedule", background="green", fg="white",font=12, command=schedule).place(x=12, y=150)
