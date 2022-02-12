@@ -1,0 +1,20 @@
+
+
+def hangman():
+    puzzle_giver = 'Ealbert'
+    player = ''
+    word_count = 0
+    wrong_guess = ''
+    guess_word = "Computer"
+
+    player_name = input("Welcome to our Hangmang game. Please enter your name: ")
+    print("Welcome {}".format(player_name))
+    player = player_name
+    guess_word_len = len(guess_word) #length of the guess word
+    player_guess = input("Please, Provide letter for the word i have in mind: ")
+    print(8*'-')
+    while player_guess in guess_word and wrong_guess <= guess_word_len:
+        print("Please, Continue with your guess number")
+        word_count += 1
+    
+hangman()
