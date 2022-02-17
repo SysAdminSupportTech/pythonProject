@@ -6,8 +6,11 @@
 #When converting from GB <- B, we multiply the value by 1024
 #General Fomular for converting from Bytes to GB = B/1024^2
 #https://www.to-convert.com/en/computer/convert-byte-to-mb.php
+from dataclasses import dataclass
 import psutil as psu
-def comp_monitor():
+import os
+import datetime
+def disk_info():
     """This programs monitor some specific computer hardware resources."""
     print("DISK STATISTICS")
     diskusage = psu.disk_usage("/")
@@ -22,4 +25,34 @@ def comp_monitor():
     print("Disk Percentage(%) =", percentage)
     
 
-print(comp_monitor())
+def netConn():
+    netConn = psu.net_connections()
+    for conn in netConn:
+        print(conn)
+
+
+def nic_interface():
+    print("Example 3: Print the NIC Information")
+    nic_conn = psu.net_if_addrs()
+    print(nic_conn)
+
+def boot_time():
+    print("Example 4: Print the Computer boot time")
+    boot_time = psu.boot_time()
+    #converting the boot time in seconds
+    convert_boottime = datetime.datetime.fromtimestamp(boot_time).strftime("%Y-%m-%d %H:%M:%S")
+    print(convert_boottime)
+
+
+def get_users():
+    print("Example 5: Get Users Details")
+    users = psu.users()
+    for detail in users:
+        print(detail)
+    #users_logon = datetime.datetime.fromtimestamp(logon_time).strftime("%Y-%m-%d %H:%M:%S")
+
+def get_pid():
+    print("Example 5: Get PIDs")
+    for i in psu.process_iter(['pid', 'name', 'username']):
+        print(i)
+get_pid()
