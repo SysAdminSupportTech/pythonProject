@@ -31,3 +31,4 @@ def playsong(songlist): #song list should be a list
             pygame.time.Clock().tick()
         
 playsong(playlist())
+#https://stackoverflow.com/questions/7746263/how-can-i-play-an-mp3-with-pygame
