@@ -1,0 +1,9 @@
+How this program works.
+This program will be design to provide a preview of users activities on the side of the screen. This will allow the user to monitor what activites or program is consuming his computer resources.
+
+#What the user should be able to do
+1. See the first five activties and consuming applications
+2. User should be able to kill any unwanted applications
+3. User should be able to kill all selected task
+4. User should be able to shutdown computer from the resource manager window
+5. Others will be added.
