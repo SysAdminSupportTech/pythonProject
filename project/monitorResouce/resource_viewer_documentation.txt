@@ -7,3 +7,9 @@ This program will be design to provide a preview of users activities on the side
 3. User should be able to kill all selected task
 4. User should be able to shutdown computer from the resource manager window
 5. Others will be added.
+
+
+Steps 1:
+1. Diplay CPU Utilization on terminal
+2. Display RAM Utilization ont terminal
+3. Disk Utilization
