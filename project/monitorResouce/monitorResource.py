@@ -30,17 +30,5 @@ def disk_utilization():
         print("Disk Utilizatioin: {}".format(disk_usage[3]), end="\r")
 
 
-thread1 = threading.Thread(target=cpu_utilization)
-thread1.start()
-
-print(" ")
-
-thread2 = threading.Thread(target=RAM_utilization)
-thread2.start()
-
-print(" ")
-
-thread3 = threading.Thread(target=disk_utilization)
-thread3.start()
-
-print(" ")
+#thread1 = threading.Thread(target=cpu_utilization)
+#thread1.start()
