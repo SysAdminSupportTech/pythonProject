@@ -13,3 +13,11 @@ Steps 1:
 1. Diplay CPU Utilization on terminal
 2. Display RAM Utilization ont terminal
 3. Disk Utilization
+
+
+Tkinter Properties to use: https://www.datacamp.com/community/tutorials/gui-tkinter-python 
+- Canvas: for drawing shapes
+- Entry/Label: For displaying text
+- Frame: This is used for organizing my widgets
+- Gride: For Geometric Measurement.It organizes the widgets in a table-like structure. You will learn about it in detail later in this tutorial
+- Place: For Geometric Measurement.Items are placed based on users preference
