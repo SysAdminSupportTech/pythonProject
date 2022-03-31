@@ -45,24 +45,27 @@ RProgram.resizable(False,False)
 cbox = tk.Canvas(RProgram, bg="black", height=300, width=300) #Declaring the canvas
 title_nav = tk.Frame(RProgram, bg="white", height=15).pack() #title frame
 title_label = tk.Label(title_nav, text="Resource Window Monitor", background="black",foreground="white", width=300).pack()
+ #CPU Frame
 CPU_Frame = tk.Frame(RProgram).pack() #CPU Frame
-CPU_Label = tk.Label(CPU_Frame, text="CPU_UTILIZATION").place(x="6", y="43",height=40, width=120)
+CPU_Label = tk.Label(CPU_Frame, text="CPU_UTILIZATION").place(x="6", y="43",height=40, width=120) #CPU label holder
+CPU_entry = tk.Entry(RProgram, bg="black", foreground="white").place(x="130", y="43",height=40, width=164) #CPU Percent display
 
-CPU_entry = tk.Entry(RProgram).place(x="130", y="43",height=40, width=164)
-
+#Disk Frame
 disk_Frame = tk.Frame(RProgram).pack()
 disk_Label = tk.Label(disk_Frame, text="Disk_UTILIZATION").place(x="6", y="92",height=40, width=120)
+disk_entry = tk.Entry(RProgram, bg="black", foreground="white").place(x="130", y="92",height=40, width=164)
 
+#RAM Frame
 RAM_Frame = tk.Frame(RProgram).pack()
 RAM_Label = tk.Label(disk_Frame, text="RAM_UTILIZATION").place(x="6", y="145",height=40, width=120)
+RAM_entry = tk.Entry(RProgram, bg="black", foreground="white").place(x="130", y="145",height=40, width=164)
 
 other_proc = tk.Frame(RProgram, background="black", bg="white").place(x=6, y=200, height=90, width=286)
 high_proc_label =tk.Label(other_proc, text="High Processes").place(x=6, y=200, height=90, width=120)
 
 pro_label = tk.Label(other_proc, text="Process Name").place(x=125, y=200, width=120)
 pro_label2 = tk.Label(other_proc, text=" %").place(x=238, y=200, width=50)
-
-
+high_proc_entry = tk.Entry(other_proc, bg="black", foreground="white").place(x="125", y="230",height=40, width=164)
 
 cbox.pack() #Canvas frame closed
 RProgram.mainloop() #Initialize program
