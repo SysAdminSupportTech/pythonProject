@@ -1,11 +1,14 @@
 #Get CPU Utilization
 from cgitb import text
+from mimetypes import common_types
 from re import X
 from turtle import bgcolor, color
 import psutil as psu
 import time
 import threading # this allows me to run while loops in parrallel
 import tkinter as tk
+
+from setuptools import Command
 
 def cpu_utilization():
     """
