@@ -1,4 +1,0 @@
-This is the file we want to read from the command
-This is the second line
-this is the third line
-this is the forth line

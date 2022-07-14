@@ -1,3 +1,0 @@
-This is the second line of the fileTthis is another line of codeThis is the third line in the program
-2. another line in the text
-3. this is number third line in the text
